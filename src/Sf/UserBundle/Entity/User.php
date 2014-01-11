@@ -63,11 +63,16 @@ class User extends BaseUser
      */
     protected $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Sf\UserBundle\Entity\Foyer", cascade={"persist"})
+     */
+    protected $foyers;
+
 	 
 	 public function __construct()
     {
         parent::__construct();
-        $this->setEnabled = 1;
+        $this->foyer = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -158,5 +163,37 @@ class User extends BaseUser
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add foyer
+     *
+     * @param Sf\UserBundle\Entity\Foyer $foyer
+     */
+    public function addFoyer(\Sf\UserBundle\Entity\Foyer $foyer)
+    {
+      // Ici, on utilise l'ArrayCollection vraiment comme un tableau, avec la syntaxe []
+      $this->foyers[] = $foyer;
+    }
+
+    /**
+     * Remove foyers
+     *
+     * @param Sf\UserBundle\Entity\Foyer $foyers
+     */
+    public function removeFoyer(\Sf\UserBundle\Entity\Foyer $foyer)
+    {
+      // Ici on utilise une méthode de l'ArrayCollection, pour supprimer la catégorie en argument
+      $this->foyers->removeElement($foyer);
+    }
+
+    /**
+     * Get foyers
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getFoyers()
+    {
+      return $this->foyers;
     }
 }

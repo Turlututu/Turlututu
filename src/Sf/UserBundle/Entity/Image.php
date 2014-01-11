@@ -15,22 +15,52 @@ class Image
    * @ORM\Id
    * @ORM\GeneratedValue(strategy="AUTO")
    */
-  private $id;
+  protected $id;
 
   /**
    * @ORM\Column(name="url", type="string", length=255)
    */
-  private $url;
+  protected $url;
 
   /**
    * @ORM\Column(name="alt", type="string", length=255)
    */
-  private $alt;
+  protected $alt;
 
-  private $file;
+  protected $file;
 
   // On ajoute cet attribut pour y stocker le nom du fichier temporairement
-  private $tempFilename;
+  protected $tempFilename;
+
+  /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Get alt
+     *
+     * @return string 
+     */
+    public function getAlt()
+    {
+        return $this->alt;
+    }
 
   public function getFile()
   {

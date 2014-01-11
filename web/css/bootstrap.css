@@ -9,6 +9,11 @@ body
 	display: inline-block;
 }
 
+h1
+{
+	color: #1275AF;
+}
+
 #menu
 {
 	display: inline-block;

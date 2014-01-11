@@ -16,7 +16,8 @@ class RegistrationFormType extends BaseType
 		$builder->add('nom', 'text', array('label' => 'Nom :'));
         $builder->add('sexe', new GenderType(),
             array('empty_value' => 'Indéterminé', 'label' => 'Sexe :'));
-        //$builder->add('image', new ImageType(), array('required' => false));
+        $builder->add('image', new ImageType(), array('required' => false, 'label' => ' '));
+        $builder->add('foyer', new FoyerType());
     }
 
     public function getName()

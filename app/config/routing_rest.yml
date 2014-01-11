@@ -1,3 +1,0 @@
-fos_rest_user: 
-    type: rest
-    resource: "@SfUserBundle/Resources/config/routing_rest.yml"
